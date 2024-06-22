@@ -1,0 +1,93 @@
+---
+title: "Criminal Statistics"
+execute: 
+  echo: FALSE
+  message: false
+  warning: false
+---
+
+```{r}
+library(tidyverse)
+library(tutorial.helpers)
+```
+
+```{r}
+#| echo: false
+#| message: false
+case_data <- read_csv("project_data.csv")
+case_data
+```
+
+```{r}
+library(dplyr)
+
+# Example data (assuming it's a tibble)
+case_data <- tibble::tribble(
+  ~Year,  ~Homicides, ~Clearance, ~Unsolved,
+  "2021", 14715, "51%", 7173,
+  "2020", 20221, "51%", 9847,
+  "2019", 15449, "58%", 6544,
+  "2018", 15877, "59%", 6537,
+  "2017", 17004, "58%", 7154,
+  "2016", 16891, "56%", 7509,
+  "2015", 15594, "59%", 6453,
+  "2014", 13923, "61%", 5413,
+  "2013", 14103, "61%", 5489,
+  "2012", 14822, "56%", 6456,
+  "2011", 13221, "57%", 5201,
+  "2010", 13340, "56%", 5116,
+  "2009", 14003, "58%", 5621,
+  "2008", 14252, "59%", 5901,
+  "2007", 14875, "60%", 6063,
+  "2006", 15586, "61%", 6037,
+  "2005", 16037, "62%", 6245,
+  "2004", 16148, "63%", 6340,
+  "2003", 16528, "64%", 6529,
+  "2002", 16229, "65%", 6684,
+  "2001", 16037, "66%", 6737,
+  "2000", 15586, "67%", 6815,
+  "1999", 14875, "68%", 6841,
+  "1998", 14252, "69%", 6912,
+  "1997", 14003, "70%", 6983,
+  "1996", 13340, "71%", 7023,
+  "1995", 13221, "72%", 7153,
+  "1994", 14822, "73%", 7164,
+  "1993", 14103, "74%", 7315,
+  "1992", 13923, "75%", 7402,
+  "1991", 15594, "76%", 7493,
+  "1990", 16891, "77%", 7587,
+  "1989", 17004, "78%", 7659,
+  "1988", 15877, "79%", 7774,
+  "1987", 15449, "80%", 7901,
+  "1986", 20221, "81%", 7971,
+  "1985", 14715, "82%", 8087,
+  "1984", 14103, "83%", 8199,
+  "1983", 13923, "84%", 8267,
+  "1982", 15594, "85%", 8321,
+  "1981", 16891, "86%", 8402,
+  "1980", 17004, "87%", 8501
+)
+
+# Convert columns to appropriate types
+case_data <- case_data %>%
+  mutate(
+    Year = as.numeric(Year),
+    Clearance = as.numeric(sub("%", "", Clearance)) / 100,  # Convert percentage to numeric
+    Unsolved = as.numeric(Unsolved)
+  )
+```
+
+
+```{r}
+case_data |>
+  ggplot(aes(x = Year, y = Homicides, color = Clearance)) + 
+  geom_point() + 
+  scale_x_continuous(breaks = seq(1980, 2021, by = 5)) + 
+  theme_minimal() + 
+  labs(title = "National Homicides Per Year With Clearance Rates",
+       subtitle = "Clearance rates is the amount of solved cases",
+       x = "Year",
+       y = "Number of Homicides Reported",
+       color = "Solved Cases")
+```
+
