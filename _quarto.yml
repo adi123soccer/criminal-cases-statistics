@@ -1,13 +1,16 @@
 project:
   type: website
+  output-dir: quarto
 
 website:
-  title: "."
+  title: "Criminal Statistics Project"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: sources.qmd
+        text: Sources
 
 format:
   html:

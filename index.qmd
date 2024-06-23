@@ -91,3 +91,4 @@ case_data |>
        color = "Solved Cases")
 ```
 
+My project consists of criminal cases mostly consisting of homicides, and how different factors look against the cases clearance rates. 
