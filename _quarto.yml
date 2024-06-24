@@ -8,9 +8,15 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - text: More Graphs
+        menu:
+          - href: graph2.qmd
+            text: Geography Graph
+          - href: Race Graph.qmd
+            text: Ethnicity Graph
       - href: sources.qmd
         text: Sources
+      - about.qmd
 
 format:
   html:

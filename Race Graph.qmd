@@ -1,0 +1,102 @@
+---
+title: "Homicide Clearance Rate Depending on Race"
+author: "Aditya Narayan"
+---
+
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+library(tutorial.helpers)
+```
+
+```{r}
+#| echo: false
+#| message: false
+race_data <- read_csv("Project.csv")
+```
+
+```{r}
+#| echo: false
+#| mssage: false
+
+# Example data (as provided earlier)
+race_data <- tribble(
+  ~State, ~`Overall solved rate`, ~`White victim solved rate`, ~`Black victim solved rate`,
+  "Alabama", "77.00%", "79.90%", "76.40%",
+  "Alaska", "81.90%", "79.80%", "80.10%",
+  "Arizona", "72.40%", "73.30%", "69.40%",
+  "Arkansas", "84.70%", "87.40%", "82.60%",
+  "California", "63.60%", "65.50%", "59.60%",
+  "Colorado", "80.60%", "81.70%", "77.10%",
+  "Connecticut", "67.40%", "73.60%", "59.50%",
+  "Delaware", "78.70%", "83.80%", "75.00%",
+  "Florida", "71.90%", "74.40%", "69.30%",
+  "Georgia", "73.10%", "76.90%", "71.50%",
+  "Hawaii", "77.50%", "75.30%", "71.00%",
+  "Idaho", "90.70%", "90.80%", "100.00%",
+  "Illinois", "61.10%", "65.80%", "58.90%",
+  "Indiana", "67.50%", "76.40%", "60.30%",
+  "Iowa", "85.60%", "86.60%", "81.30%",
+  "Kansas", "81.70%", "83.70%", "77.80%",
+  "Kentucky", "78.30%", "82.00%", "69.90%",
+  "Louisiana", "70.30%", "79.40%", "67.30%",
+  "Maine", "89.10%", "89.50%", "84.40%",
+  "Maryland", "59.20%", "75.80%", "54.00%",
+  "Massachusetts", "64.30%", "73.10%", "50.70%",
+  "Michigan", "67.70%", "75.30%", "64.50%",
+  "Minnesota", "82.00%", "86.60%", "74.50%",
+  "Mississippi", "83.90%", "83.90%", "84.10%",
+  "Missouri", "64.10%", "78.30%", "55.50%",
+  "Montana", "91.50%", "92.70%", "100.00%",
+  "Nebraska", "81.90%", "87.40%", "68.40%",
+  "Nevada", "69.80%", "70.80%", "66.70%",
+  "New Hampshire", "85.00%", "85.00%", "76.20%",
+  "New Jersey", "64.00%", "71.80%", "58.60%",
+  "New Mexico", "75.30%", "75.90%", "72.20%",
+  "New York", "55.00%", "57.60%", "52.80%",
+  "North Carolina", "80.30%", "82.00%", "79.30%",
+  "North Dakota", "94.30%", "93.90%", "95.20%",
+  "Ohio", "71.90%", "78.00%", "67.60%",
+  "Oklahoma", "83.50%", "84.80%", "80.50%",
+  "Oregon", "82.70%", "83.90%", "72.60%",
+  "Pennsylvania", "73.50%", "79.50%", "69.30%",
+  "Rhode Island", "68.40%", "71.40%", "61.10%",
+  "South Carolina", "89.70%", "90.10%", "89.50%",
+  "South Dakota", "93.10%", "93.40%", "89.50%",
+  "Tennessee", "83.70%", "85.30%", "82.50%",
+  "Texas", "76.90%", "77.00%", "77.50%",
+  "Utah", "86.20%", "86.30%", "87.30%",
+  "Vermont", "88.40%", "87.90%", "95.70%",
+  "Virginia", "79.40%", "84.90%", "75.70%",
+  "Washington", "78.70%", "81.00%", "73.10%",
+  "West Virginia", "89.50%", "90.80%", "82.10%",
+  "Wisconsin", "83.00%", "86.40%", "79.00%",
+  "Wyoming", "89.80%", "89.70%", "100.00%"
+)
+
+# Select relevant columns and convert to numeric
+race_data <- race_data %>%
+  select(State, `White victim solved rate`, `Black victim solved rate`) %>%
+  mutate(
+    `White victim solved rate` = as.numeric(sub("%", "", `White victim solved rate`)),
+    `Black victim solved rate` = as.numeric(sub("%", "", `Black victim solved rate`))
+  )
+
+# Reshape data from wide to long format for plotting
+race_data_long <- race_data %>%
+  pivot_longer(cols = c(`White victim solved rate`, `Black victim solved rate`), names_to = "Race", values_to = "Solved Rate")
+
+# Plot using ggplot2
+ggplot(race_data_long, aes(x = reorder(State, -`Solved Rate`), y = `Solved Rate`, fill = Race)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.6) +
+  labs(title = "Clearance Rate by Race per State",
+       subtitle = "3 States have 100% clearance rate for black victims",
+       y = "Solved Rate (%)", x = "") +
+  scale_fill_manual(values = c("White victim solved rate" = "#3182bd", "Black victim solved rate" = "#de2d26")) +  # Custom colors
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, size = 8, margin = margin(b = 10))) +  # Adjust font size and angle
+  scale_y_continuous(limits = c(0, 100)) +  # Set y-axis limits from 0 to 100
+  guides(fill = guide_legend(title = NULL))  # Remove legend title
+```
+

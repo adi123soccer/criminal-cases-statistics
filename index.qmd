@@ -15,7 +15,6 @@ library(tutorial.helpers)
 #| echo: false
 #| message: false
 case_data <- read_csv("project_data.csv")
-case_data
 ```
 
 ```{r}
