@@ -18,11 +18,11 @@ website:
         text: Sources
       - about.qmd
 
-format:
+format: 
   html:
-    theme: cosmo
+    theme: dragon
     css: styles.css
-    toc: true
+    toc: TRUE
 
 
 

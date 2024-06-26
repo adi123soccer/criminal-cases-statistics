@@ -4,4 +4,4 @@ author: "Aditya Narayan"
 ---
 
 An overview of sources used in my project. 
-I got my first graph from 'The Murder Accountability Project' which studied the FBI's data. I only took the values from the tibble I wanted and left values that are unnecessary for my graph. An example conists of unsolved cases as I only wanted to show the clearance rates. 
+I got my first graph from 'The Murder Accountability Project' which studied the FBI's data. I only took the values from the tibble I wanted and left values that are unnecessary for my graph. An example conists of unsolved cases as I only wanted to show the clearance rates. NBC News also provided me data for two of the graphs however both graphs only contained data for before Covid, 2020. This data also came from FBI Records. ChatGPT was very helpful in my project as it helped with fixing my code for the graphs. 

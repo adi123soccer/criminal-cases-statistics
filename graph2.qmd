@@ -83,7 +83,6 @@ ggplot(state_data, aes(x = reorder(State, -as.numeric(sub("%", "", `Overall solv
        y = "Clearance Rate (%)", x = "State") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  coord_flip() +  # Flip coordinates for horizontal bars
   scale_y_continuous(limits = c(0, 100))
 ```
 

@@ -6,6 +6,12 @@ execute:
   warning: false
 ---
 
+Criminal case clearance rates have been drastically decreasing over the past few decades. The data was pulled from FBI records. Then the data was paired to analyze how many cases are being solved/unsolved over the last few years. Clearance rates have dipped from 80% in the 1980's to less than 50% in today's modern generation. 
+
+
+**Clearance rates** = *Percentage of cases solved*
+
+
 ```{r}
 library(tidyverse)
 library(tutorial.helpers)
@@ -80,11 +86,11 @@ case_data <- case_data %>%
 ```{r}
 case_data |>
   ggplot(aes(x = Year, y = Homicides, color = Clearance)) + 
-  geom_point() + 
+  geom_point(size = 3) + 
   scale_x_continuous(breaks = seq(1980, 2021, by = 5)) + 
   theme_minimal() + 
   labs(title = "National Homicides Per Year With Clearance Rates",
-       subtitle = "Clearance rates is the amount of solved cases",
+       subtitle = "Clearance rates have decreased a lot",
        x = "Year",
        y = "Number of Homicides Reported",
        color = "Solved Cases")

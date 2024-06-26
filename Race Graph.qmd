@@ -89,13 +89,13 @@ race_data_long <- race_data %>%
 
 # Plot using ggplot2
 ggplot(race_data_long, aes(x = reorder(State, -`Solved Rate`), y = `Solved Rate`, fill = Race)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.6) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.9) +
   labs(title = "Clearance Rate by Race per State",
        subtitle = "3 States have 100% clearance rate for black victims",
        y = "Solved Rate (%)", x = "") +
   scale_fill_manual(values = c("White victim solved rate" = "#3182bd", "Black victim solved rate" = "#de2d26")) +  # Custom colors
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, size = 8, margin = margin(b = 10))) +  # Adjust font size and angle
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5, size = 6.5, margin = margin(b = .001))) +  # Adjust font size and angle
   scale_y_continuous(limits = c(0, 100)) +  # Set y-axis limits from 0 to 100
   guides(fill = guide_legend(title = NULL))  # Remove legend title
 ```

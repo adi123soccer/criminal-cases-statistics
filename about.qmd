@@ -2,8 +2,8 @@
 title: "About"
 ---
 
-I am Aditya Narayan (adinarayan2009@gmail.com), here is the link to my github account, https://github.com/adi123soccer/. 
+I am Aditya Narayan (adinarayan2009@gmail.com), [here is the link to my github account.](https://github.com/adi123soccer/) 
 
-My project revolves around the topic of criminal cases clearance rates. I graph how different factors compare to clearance rates as well. The link to my github repo for this project lies here, https://github.com/adi123soccer/criminal-cases-statistics
+My project revolves around the topic of criminal cases clearance rates. I graph how different factors compare to clearance rates as well. [The link to my github repo for this project lies here.](https://github.com/adi123soccer/criminal-cases-statistics)
 
-This project was created as a part of Kane’s Data Science Bootcamp. https://bootcamp.davidkane.info/.
+This project was created as a part of [Kane’s Data Science Bootcamp.](https://bootcamp.davidkane.info/)
