@@ -14,13 +14,15 @@ website:
             text: Geography Graph
           - href: Race Graph.qmd
             text: Ethnicity Graph
+          - href: reported_cases.qmd
+            text: Cases Reported Graph
       - href: sources.qmd
         text: Sources
       - about.qmd
 
 format: 
   html:
-    theme: dragon
+    theme: lumen
     css: styles.css
     toc: TRUE
 

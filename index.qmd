@@ -6,10 +6,9 @@ execute:
   warning: false
 ---
 
-Criminal case clearance rates have been drastically decreasing over the past few decades. The data was pulled from FBI records. Then the data was paired to analyze how many cases are being solved/unsolved over the last few years. Clearance rates have dipped from 80% in the 1980's to less than 50% in today's modern generation. 
-
-
 **Clearance rates** = *Percentage of cases solved*
+
+My project investigates the trends in solving criminal cases over time. Using data sourced from FBI records, I correlated the years with clearance rates. It is disheartening to observe that clearance rates have declined significantly, plummeting from 80% in the 1980s to below 50% in today's time. This decline underscores the challenges in achieving successful case resolutions in recent years.
 
 
 ```{r}

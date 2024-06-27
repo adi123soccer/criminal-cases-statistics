@@ -4,4 +4,4 @@ author: "Aditya Narayan"
 ---
 
 An overview of sources used in my project. 
-I got my first graph from 'The Murder Accountability Project' which studied the FBI's data. I only took the values from the tibble I wanted and left values that are unnecessary for my graph. An example conists of unsolved cases as I only wanted to show the clearance rates. NBC News also provided me data for two of the graphs however both graphs only contained data for before Covid, 2020. This data also came from FBI Records. ChatGPT was very helpful in my project as it helped with fixing my code for the graphs. 
+In compiling data for this project, I utilized multiple sources. The first and last graph draws from ['The Murder Accountability Project,'](https://projectcoldcase.org/cold-case-homicide-stats/) which extensively analyzed FBI data. [NBC News](https://www.nbcnews.com/news/us-news/track-solved-murder-rates-united-states-n1271928) contributed data for two additional graphs, all predating 2020 and sourced from FBI Records. ChatGPT played a crucial role by assisting in debugging code for graph generation. 
